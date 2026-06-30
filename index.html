@@ -317,112 +317,50 @@ ul { list-style: none; }
 }
 
 /* ── EDUCATION ── */
-<!-- ═══════════════════════ EDUCATION ═══════════════════════ -->
-<section class="section edu-section" id="education">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="eyebrow">Academic Journey</span>
-      <h2>Education</h2>
-    </div>
-
-    <div class="timeline reveal">
-
-      <!-- B.Tech -->
-      <div class="timeline-item active">
-        <div class="timeline-dot"></div>
-
-        <div class="timeline-card glass-card">
-          <div class="tc-top">
-            <span class="tc-badge">Current</span>
-            <span class="tc-year">2023 – 2027</span>
-          </div>
-
-          <div class="tc-logo">🎓</div>
-
-          <h3>KL University</h3>
-
-          <p class="tc-sub">
-            Bachelor of Technology in Food Technology
-          </p>
-
-          <p class="tc-loc">
-            📍 Thullur, Andhra Pradesh, India
-          </p>
-
-          <div class="tc-highlights">
-            <span>Food Processing</span>
-            <span>Quality Assurance</span>
-            <span>Food Microbiology</span>
-            <span>Nutrition Science</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Intermediate -->
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-
-        <div class="timeline-card glass-card">
-          <div class="tc-top">
-            <span class="tc-badge">Completed</span>
-            <span class="tc-year">2021 – 2023</span>
-          </div>
-
-          <div class="tc-logo">📘</div>
-
-          <h3>Sri Sarada Junior College</h3>
-
-          <p class="tc-sub">
-            Intermediate (BiPC)
-          </p>
-
-          <p class="tc-loc">
-            📍 Vijayawada, Andhra Pradesh, India
-          </p>
-
-          <div class="tc-highlights">
-            <span>Biology</span>
-            <span>Physics</span>
-            <span>Chemistry</span>
-            <span>Life Sciences</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- SSC -->
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-
-        <div class="timeline-card glass-card">
-          <div class="tc-top">
-            <span class="tc-badge">Completed</span>
-            <span class="tc-year">2020 – 2021</span>
-          </div>
-
-          <div class="tc-logo">🏫</div>
-
-          <h3>Amali E.M High School (JMJ)</h3>
-
-          <p class="tc-sub">
-            Secondary School Certificate (SSC)
-          </p>
-
-          <p class="tc-loc">
-            📍 Vijayawada, Andhra Pradesh, India
-          </p>
-
-          <div class="tc-highlights">
-            <span>Science</span>
-            <span>Mathematics</span>
-            <span>English</span>
-            <span>Foundation</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
+.edu-section { background: var(--bg); }
+.timeline { display: flex; flex-direction: column; align-items: center; gap: 32px; position: relative; }
+.timeline-item { position: relative; width: 100%; }
+.timeline-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  width: 100%;
+  max-width: 680px;
+}
+.timeline-row-3 {
+  grid-template-columns: 1.2fr 1fr 1fr;
+  max-width: 1000px;
+  align-items: stretch;
+}
+.timeline-row .timeline-item { max-width: none; }
+.timeline-card { padding: 32px 36px; height: 100%; }
+.timeline-row .timeline-card { padding: 26px 24px; }
+.timeline-row .tc-logo { font-size: 1.8rem; }
+.timeline-row .tc-title { font-size: 1.15rem; }
+.tc-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+.tc-badge {
+  background: var(--green-bright); color: #fff;
+  font-size: 0.75rem; font-weight: 600; padding: 4px 12px;
+  border-radius: 100px; letter-spacing: 0.08em;
+}
+.tc-badge-alt {
+  background: var(--grey-light); color: var(--text-sub);
+}
+[data-theme="dark"] .tc-badge-alt { background: rgba(255,255,255,0.1); color: var(--text-sub); }
+.tc-year { font-size: 0.85rem; color: var(--text-sub); font-weight: 500; }
+.tc-logo { font-size: 2.5rem; margin-bottom: 12px; }
+.timeline-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem; color: var(--text); margin-bottom: 6px;
+}
+.tc-sub { color: var(--green-mid); font-weight: 500; margin-bottom: 8px; }
+.tc-loc { color: var(--text-sub); font-size: 0.9rem; margin-bottom: 20px; }
+.tc-highlights { display: flex; flex-wrap: wrap; gap: 8px; }
+.tc-highlights span {
+  font-size: 0.8rem; padding: 4px 12px;
+  background: var(--green-pale); color: var(--green-mid);
+  border-radius: 100px; font-weight: 500;
+}
 
 /* ── SKILLS ── */
 .skills-section { background: var(--bg-alt); }
@@ -456,7 +394,6 @@ ul { list-style: none; }
   border-radius: 100px;
   transition: width 1.2s cubic-bezier(0.4,0,0.2,1);
 }
-    
 
 /* ── PROJECTS ── */
 .projects-section { background: var(--bg); }
@@ -651,12 +588,11 @@ ul { list-style: none; }
 .contact-grid{
     display:flex;
     justify-content:center;
-    align-items:center;
 }
 
 .contact-info{
-    width:100%;
     max-width:650px;
+    width:100%;
 }
 .contact-lead {
   font-size: 1.05rem; color: var(--text-sub);
@@ -725,7 +661,12 @@ ul { list-style: none; }
 .reveal.in-view { opacity: 1; transform: none; }
 
 /* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .timeline-row-3 { grid-template-columns: 1fr; max-width: 680px; }
+}
 @media (max-width: 768px) {
+  .timeline::before { display: none; }
+  .timeline-row { grid-template-columns: 1fr; }
   .section { padding: 64px 0; }
   .about-grid { grid-template-columns: 1fr; gap: 40px; }
   .about-visual { order: -1; }
@@ -865,22 +806,49 @@ ul { list-style: none; }
       <h2>Education</h2>
     </div>
     <div class="timeline reveal">
-      <div class="timeline-item active">
-        <div class="timeline-dot"></div>
-        <div class="timeline-card glass-card">
-          <div class="tc-top">
-            <span class="tc-badge">Current</span>
-            <span class="tc-year">2023 – 2027</span>
+      <div class="timeline-row timeline-row-3">
+        <div class="timeline-item">
+          <div class="timeline-card glass-card">
+            <div class="tc-top">
+              <span class="tc-badge">Current</span>
+              <span class="tc-year">2023 – 2027</span>
+            </div>
+            <div class="tc-logo">🎓</div>
+            <h3 class="tc-title">KL University</h3>
+            <p class="tc-sub">B.Tech in Food Technology</p>
+            <p class="tc-loc">📍 Guntur, Andhra Pradesh, India</p>
+            <div class="tc-highlights">
+              <span>Food Processing</span>
+              <span>Quality Assurance</span>
+              <span>Food Microbiology</span>
+              <span>Nutrition Science</span>
+            </div>
           </div>
-          <div class="tc-logo">🎓</div>
-          <h3 class="tc-title">KL University</h3>
-          <p class="tc-sub">Bachelor of Technology in Food Technology</p>
-          <p class="tc-loc">📍 Thullur, Andhra Pradesh, India</p>
-          <div class="tc-highlights">
-            <span>Food Processing</span>
-            <span>Quality Assurance</span>
-            <span>Food Microbiology</span>
-            <span>Nutrition Science</span>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-card glass-card">
+            <div class="tc-top">
+              <span class="tc-badge tc-badge-alt">Completed</span>
+              <span class="tc-year">2021 – 2023</span>
+            </div>
+            <div class="tc-logo">📘</div>
+            <h3 class="tc-title">Sri Sarada Junior College</h3>
+            <p class="tc-sub">Intermediate (BIPC)</p>
+            <p class="tc-loc">📍 Vijayawada, Andhra Pradesh, India</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-card glass-card">
+            <div class="tc-top">
+              <span class="tc-badge tc-badge-alt">Completed</span>
+              <span class="tc-year">2020 – 2021</span>
+            </div>
+            <div class="tc-logo">🏫</div>
+            <h3 class="tc-title">Amali E.M High School (JMJ)</h3>
+            <p class="tc-sub">Secondary School Education (10th)</p>
+            <p class="tc-loc">📍 Vijayawada, Andhra Pradesh, India</p>
           </div>
         </div>
       </div>
@@ -1393,6 +1361,29 @@ ul { list-style: none; }
   </div>
 </div>
       
+        <form class="contact-form glass-card" onsubmit="handleForm(event)">
+          <h3>Send a Message</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fname">Your Name</label>
+              <input type="text" id="fname" placeholder="Jane Smith" required />
+            </div>
+            <div class="form-group">
+              <label for="femail">Email Address</label>
+              <input type="email" id="femail" placeholder="jane@example.com" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="fsubject">Subject</label>
+            <input type="text" id="fsubject" placeholder="Internship Inquiry / Research Collaboration..." />
+          </div>
+          <div class="form-group">
+            <label for="fmsg">Message</label>
+            <textarea id="fmsg" rows="5" placeholder="Tell me a bit about what you have in mind..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary full-width">Send Message ✉️</button>
+          <div id="formSuccess" class="form-success hidden">✅ Message sent! I'll get back to you soon.</div>
+        </form>
       </div>
     </div>
   </div>
@@ -1489,7 +1480,6 @@ rtabs.forEach(tab => {
 });
 
 /* ── CONTACT FORM ── */
-
 
 /* ── PARTICLE CANVAS ── */
 (function initParticles() {
