@@ -571,9 +571,15 @@ ul { list-style: none; }
 
 /* ── CONTACT ── */
 .contact-section { background: var(--bg-alt); }
-.contact-grid {
-  display: grid; grid-template-columns: 1fr 1.4fr;
-  gap: 56px; align-items: start;
+.contact-grid{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.contact-info{
+    width:100%;
+    max-width:650px;
 }
 .contact-lead {
   font-size: 1.05rem; color: var(--text-sub);
@@ -1283,55 +1289,33 @@ ul { list-style: none; }
     </div>
     <div class="contact-grid">
       <div class="contact-info reveal">
-        <p class="contact-lead">I'm open to internship opportunities, research collaborations, academic projects, and conversations about food technology. Let's connect!</p>
-        <div class="contact-items">
-          <a href="mailto:aishani.sandhya@gmail.com" class="contact-item glass-card">
-            <div class="ci-icon">✉️</div>
-            <div>
-              <strong>Email</strong>
-              <span>aishani.sandhya@gmail.com</span>
-            </div>
-          </a>
-          <a href="https://www.linkedin.com/in/aishanitiruveedhula-4a8441330" target="_blank" class="contact-item glass-card">
-            <div class="ci-icon">💼</div>
-            <div>
-              <strong>LinkedIn</strong>
-              <span>Aishani Tiruveedhula</span>
-            </div>
-          </a>
-          <div class="contact-item glass-card">
-            <div class="ci-icon">📍</div>
-            <div>
-              <strong>Location</strong>
-              <span>Thullur, Andhra Pradesh, India</span>
-            </div>
-          </div>
-        </div>
+  <p class="contact-lead">
+    I'm open to internship opportunities, research collaborations, academic projects, and conversations about food technology. Let's connect!
+  </p>
+
+  <div class="contact-items">
+
+    <a href="mailto:aishani.sandhya@gmail.com" class="contact-item glass-card">
+      <div class="ci-icon">✉️</div>
+      <div>
+        <strong>Email</strong>
+        <span>aishani.sandhya@gmail.com</span>
       </div>
-      <div class="contact-form-wrap reveal">
-        <form class="contact-form glass-card" onsubmit="handleForm(event)">
-          <h3>Send a Message</h3>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="fname">Your Name</label>
-              <input type="text" id="fname" placeholder="Jane Smith" required />
-            </div>
-            <div class="form-group">
-              <label for="femail">Email Address</label>
-              <input type="email" id="femail" placeholder="jane@example.com" required />
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="fsubject">Subject</label>
-            <input type="text" id="fsubject" placeholder="Internship Inquiry / Research Collaboration..." />
-          </div>
-          <div class="form-group">
-            <label for="fmsg">Message</label>
-            <textarea id="fmsg" rows="5" placeholder="Tell me a bit about what you have in mind..." required></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary full-width">Send Message ✉️</button>
-          <div id="formSuccess" class="form-success hidden">✅ Message sent! I'll get back to you soon.</div>
-        </form>
+    </a>
+
+    <a href="https://www.linkedin.com/in/aishani-tiruveedhula-4a8441330/"
+       target="_blank"
+       class="contact-item glass-card">
+      <div class="ci-icon">💼</div>
+      <div>
+        <strong>LinkedIn</strong>
+        <span>linkedin.com/in/aishani-tiruveedhula-4a8441330</span>
+      </div>
+    </a>
+
+  </div>
+</div>
+      
       </div>
     </div>
   </div>
@@ -1428,20 +1412,7 @@ rtabs.forEach(tab => {
 });
 
 /* ── CONTACT FORM ── */
-function handleForm(e) {
-  e.preventDefault();
-  const btn = e.target.querySelector('button[type="submit"]');
-  const success = document.getElementById('formSuccess');
-  btn.textContent = 'Sending…';
-  btn.disabled = true;
-  setTimeout(() => {
-    btn.textContent = 'Send Message ✉️';
-    btn.disabled = false;
-    success.classList.remove('hidden');
-    e.target.reset();
-    setTimeout(() => success.classList.add('hidden'), 4000);
-  }, 1200);
-}
+
 
 /* ── PARTICLE CANVAS ── */
 (function initParticles() {
