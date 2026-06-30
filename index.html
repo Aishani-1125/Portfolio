@@ -1,0 +1,1541 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Aishani Tiruveedhula - Food Technology Student at KL University. Passionate about food innovation, quality assurance, nutrition, and sustainable food solutions." />
+  <meta name="keywords" content="Food Technology, KL University, Food Science, Quality Assurance, Nutrition, Food Safety" />
+  <meta property="og:title" content="Aishani Tiruveedhula | Food Technology Student" />
+  <meta property="og:description" content="Passionate Food Technology student exploring food innovation, quality assurance, nutrition, and sustainable food solutions." />
+  <title>Aishani Tiruveedhula | Food Technology Student</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+/* ════════════════════════════════════════════════════
+   AISHANI TIRUVEEDHULA · PORTFOLIO STYLESHEET
+   Palette: Forest Green · Cream · Paprika · White
+   Type: Playfair Display + Inter
+   ════════════════════════════════════════════════════ */
+
+/* ── TOKENS ── */
+:root {
+  --green-deep:    #1A3C2E;
+  --green-mid:     #2D6A4F;
+  --green-bright:  #4CAF6B;
+  --green-pale:    #D4EDDA;
+  --cream:         #F5F0E8;
+  --cream-light:   #FFFDF9;
+  --paprika:       #E8622A;
+  --paprika-light: #FFF0EA;
+  --charcoal:      #1C1C1E;
+  --grey-mid:      #6B7280;
+  --grey-light:    #E5E7EB;
+
+  --bg:            var(--cream-light);
+  --bg-alt:        var(--cream);
+  --surface:       #FFFFFF;
+  --surface-glass: rgba(255,255,255,0.65);
+  --text:          var(--charcoal);
+  --text-sub:      var(--grey-mid);
+  --border:        rgba(0,0,0,0.08);
+  --shadow:        0 4px 24px rgba(26,60,46,0.10);
+  --shadow-hover:  0 12px 40px rgba(26,60,46,0.18);
+  --accent:        var(--green-bright);
+  --accent2:       var(--paprika);
+
+  --nav-h: 68px;
+  --r-sm: 12px;
+  --r-md: 20px;
+  --r-lg: 32px;
+  --transition: 0.35s cubic-bezier(0.4,0,0.2,1);
+}
+
+[data-theme="dark"] {
+  --bg:            #0F1F16;
+  --bg-alt:        #152B1E;
+  --surface:       #1E3426;
+  --surface-glass: rgba(18,42,28,0.75);
+  --text:          #F0EDE6;
+  --text-sub:      #9DB8A6;
+  --border:        rgba(255,255,255,0.08);
+  --shadow:        0 4px 24px rgba(0,0,0,0.35);
+  --shadow-hover:  0 12px 40px rgba(0,0,0,0.5);
+  --green-pale:    #1A3028;
+}
+
+/* ── RESET ── */
+*,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.65;
+  transition: background var(--transition), color var(--transition);
+  overflow-x: hidden;
+}
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+/* ── UTILITY ── */
+.container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+.hidden { display: none !important; }
+.full-width { width: 100%; }
+
+/* ── GLASS CARD ── */
+.glass-card {
+  background: var(--surface-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.glass-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* ── SECTION BASE ── */
+.section { padding: 96px 0; }
+.section-header { text-align: center; margin-bottom: 64px; }
+.eyebrow {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--green-bright);
+  background: var(--green-pale);
+  padding: 4px 14px;
+  border-radius: 100px;
+  margin-bottom: 14px;
+}
+.section-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+/* ── NAV ── */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+  height: var(--nav-h);
+  background: var(--surface-glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  transition: background var(--transition), box-shadow var(--transition);
+}
+.nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.12); }
+.nav-inner {
+  max-width: 1200px; margin: 0 auto; padding: 0 24px;
+  height: 100%; display: flex; align-items: center; gap: 32px;
+}
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem; font-weight: 700;
+  color: var(--green-deep); flex-shrink: 0;
+}
+[data-theme="dark"] .nav-logo { color: var(--green-bright); }
+.dot { color: var(--paprika); }
+.nav-links {
+  display: flex; gap: 6px; flex: 1; flex-wrap: wrap;
+}
+.nav-links a {
+  font-size: 0.85rem; font-weight: 500;
+  padding: 6px 12px; border-radius: 8px;
+  color: var(--text-sub);
+  transition: color var(--transition), background var(--transition);
+}
+.nav-links a:hover { color: var(--text); background: var(--green-pale); }
+.nav-actions { display: flex; align-items: center; gap: 10px; margin-left: auto; flex-shrink: 0; }
+.theme-toggle {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 100px; padding: 6px 12px; cursor: pointer;
+  font-size: 1rem; transition: all var(--transition);
+}
+.theme-toggle:hover { transform: scale(1.05); }
+[data-theme="light"] .icon-moon { display: none; }
+[data-theme="dark"] .icon-sun { display: none; }
+.nav-burger {
+  display: none; background: none; border: none;
+  font-size: 1.4rem; cursor: pointer; color: var(--text);
+}
+.mobile-menu {
+  display: none; flex-direction: column; gap: 0;
+  background: var(--surface-glass); backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  padding: 8px 24px 16px;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  padding: 10px 0; border-bottom: 1px solid var(--border);
+  font-weight: 500; color: var(--text);
+}
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .nav-burger { display: block; }
+}
+
+/* ── HERO ── */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg, var(--green-deep) 0%, #2D6A4F 55%, #1A3C2E 100%);
+  overflow: hidden; padding-top: var(--nav-h);
+}
+#particleCanvas {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  pointer-events: none;
+}
+.hero-content {
+  position: relative; z-index: 2;
+  text-align: center; padding: 48px 24px;
+  max-width: 800px;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(76,175,107,0.2); border: 1px solid rgba(76,175,107,0.4);
+  color: #90EE90; border-radius: 100px;
+  font-size: 0.82rem; font-weight: 500; letter-spacing: 0.04em;
+  padding: 8px 18px; margin-bottom: 28px;
+}
+.hero-name {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 700; line-height: 1.05;
+  color: #FFFFFF; margin-bottom: 24px;
+}
+.hero-name em {
+  font-style: italic; color: #90EE90;
+  display: block;
+}
+.hero-tagline {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: rgba(255,255,255,0.82); font-weight: 300;
+  max-width: 580px; margin: 0 auto 40px;
+  line-height: 1.7;
+}
+.hero-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 56px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 14px 28px; border-radius: var(--r-sm);
+  font-weight: 600; font-size: 0.95rem;
+  transition: all var(--transition); cursor: pointer;
+  border: 2px solid transparent;
+}
+.btn-primary {
+  background: var(--paprika); color: #fff;
+  box-shadow: 0 4px 20px rgba(232,98,42,0.4);
+}
+.btn-primary:hover {
+  background: #D04E1A;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(232,98,42,0.5);
+}
+.btn-outline {
+  background: transparent; color: #fff;
+  border-color: rgba(255,255,255,0.5);
+}
+.btn-outline:hover {
+  background: rgba(255,255,255,0.12);
+  border-color: #fff; transform: translateY(-2px);
+}
+.hero-stats {
+  display: flex; align-items: center; justify-content: center; gap: 32px;
+}
+.stat { text-align: center; }
+.stat-n { display: block; font-size: 2rem; font-weight: 700; color: #fff; font-family: 'Playfair Display', serif; }
+.stat-l { font-size: 0.78rem; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.1em; }
+.stat-div { width: 1px; height: 40px; background: rgba(255,255,255,0.2); }
+.hero-scroll-hint {
+  position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  color: rgba(255,255,255,0.5); font-size: 0.75rem; letter-spacing: 0.1em;
+}
+.scroll-line {
+  width: 1px; height: 40px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+@keyframes scrollPulse { 0%,100%{opacity:0.5;transform:scaleY(1)} 50%{opacity:1;transform:scaleY(1.1)} }
+
+/* ── ABOUT ── */
+.about-section { background: var(--bg-alt); }
+.about-grid {
+  display: grid; grid-template-columns: 280px 1fr;
+  gap: 64px; align-items: center;
+}
+.about-visual { display: flex; justify-content: center; }
+.about-avatar {
+  position: relative; width: 220px; height: 220px;
+  display: flex; align-items: center; justify-content: center;
+}
+.avatar-ring {
+  position: absolute; inset: 0;
+  border-radius: 50%;
+  border: 3px solid var(--green-bright);
+  animation: rotate 12s linear infinite;
+}
+.avatar-ring::before {
+  content:''; position: absolute;
+  top: -8px; left: 50%; transform: translateX(-50%);
+  width: 16px; height: 16px; border-radius: 50%;
+  background: var(--paprika);
+}
+@keyframes rotate { to { transform: rotate(360deg); } }
+.avatar-initials {
+  width: 160px; height: 160px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--green-mid), var(--green-deep));
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8rem; font-weight: 700; color: #fff;
+  z-index: 1;
+}
+.avatar-molecule {
+  position: absolute; font-size: 1.3rem;
+  color: var(--green-bright); opacity: 0.7;
+  animation: floatM 3s ease-in-out infinite;
+}
+.m1 { top: 10px; right: 20px; animation-delay: 0s; }
+.m2 { bottom: 20px; right: 10px; animation-delay: 1s; }
+.m3 { bottom: 15px; left: 15px; animation-delay: 2s; }
+@keyframes floatM { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+.about-lead { font-size: 1.15rem; font-weight: 500; color: var(--text); margin-bottom: 16px; }
+.about-text p { color: var(--text-sub); margin-bottom: 14px; }
+.about-text strong { color: var(--text); }
+.about-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+.tag {
+  background: var(--green-pale); color: var(--green-mid);
+  font-size: 0.82rem; font-weight: 500; padding: 6px 14px;
+  border-radius: 100px; border: 1px solid rgba(76,175,107,0.3);
+}
+
+/* ── EDUCATION ── */
+.edu-section { background: var(--bg); }
+.timeline { display: flex; flex-direction: column; align-items: center; gap: 32px; }
+.timeline-item { position: relative; width: 100%; max-width: 680px; }
+.timeline-dot {
+  position: absolute; left: -32px; top: 28px;
+  width: 16px; height: 16px; border-radius: 50%;
+  background: var(--green-bright); border: 3px solid var(--bg);
+  box-shadow: 0 0 0 4px rgba(76,175,107,0.3);
+}
+.timeline-card { padding: 32px 36px; }
+.tc-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+.tc-badge {
+  background: var(--green-bright); color: #fff;
+  font-size: 0.75rem; font-weight: 600; padding: 4px 12px;
+  border-radius: 100px; letter-spacing: 0.08em;
+}
+.tc-year { font-size: 0.85rem; color: var(--text-sub); font-weight: 500; }
+.tc-logo { font-size: 2.5rem; margin-bottom: 12px; }
+.timeline-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem; color: var(--text); margin-bottom: 6px;
+}
+.tc-sub { color: var(--green-mid); font-weight: 500; margin-bottom: 8px; }
+.tc-loc { color: var(--text-sub); font-size: 0.9rem; margin-bottom: 20px; }
+.tc-highlights { display: flex; flex-wrap: wrap; gap: 8px; }
+.tc-highlights span {
+  font-size: 0.8rem; padding: 4px 12px;
+  background: var(--green-pale); color: var(--green-mid);
+  border-radius: 100px; font-weight: 500;
+}
+
+/* ── SKILLS ── */
+.skills-section { background: var(--bg-alt); }
+.skills-categories { display: flex; flex-direction: column; gap: 48px; }
+.skills-group-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem; color: var(--text);
+  margin-bottom: 24px; padding-bottom: 12px;
+  border-bottom: 2px solid var(--green-pale);
+}
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+.skill-card { padding: 24px; }
+.skill-icon { font-size: 2rem; margin-bottom: 12px; }
+.skill-card h4 {
+  font-weight: 600; font-size: 1rem;
+  color: var(--text); margin-bottom: 8px;
+}
+.skill-card p { font-size: 0.85rem; color: var(--text-sub); line-height: 1.6; margin-bottom: 16px; }
+.skill-bar {
+  height: 4px; background: var(--grey-light);
+  border-radius: 100px; overflow: hidden;
+}
+[data-theme="dark"] .skill-bar { background: rgba(255,255,255,0.1); }
+.skill-fill {
+  height: 100%; width: 0;
+  background: linear-gradient(90deg, var(--green-mid), var(--green-bright));
+  border-radius: 100px;
+  transition: width 1.2s cubic-bezier(0.4,0,0.2,1);
+}
+
+/* ── PROJECTS ── */
+.projects-section { background: var(--bg); }
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 28px;
+}
+.project-card { overflow: hidden; padding: 0; }
+.project-img {
+  height: 180px; position: relative;
+  background-size: cover; background-position: center;
+}
+.project-img-1 { background: linear-gradient(135deg, #1A3C2E 0%, #2D6A4F 100%); }
+.project-img-2 { background: linear-gradient(135deg, #2D4A1E 0%, #5A8A3A 100%); }
+.project-img-3 { background: linear-gradient(135deg, #1A3550 0%, #2D6B8A 100%); }
+.project-img-4 { background: linear-gradient(135deg, #4A2D1A 0%, #8A6B2D 100%); }
+.project-img::before {
+  content: attr(class);
+  display: none;
+}
+/* Food-themed SVG patterns on project images */
+.project-img-1::after { content: '🥛 🧀 🧬'; font-size: 2rem; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); opacity: 0.4; }
+.project-img-2::after { content: '🌾 🥗 📊'; font-size: 2rem; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); opacity: 0.4; }
+.project-img-3::after { content: '🥬 📦 🌱'; font-size: 2rem; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); opacity: 0.4; }
+.project-img-4::after { content: '🥛 🦠 🔬'; font-size: 2rem; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); opacity: 0.4; }
+.project-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.5));
+  display: flex; align-items: flex-end; padding: 14px 18px;
+}
+.project-tag {
+  background: var(--paprika); color: #fff;
+  font-size: 0.75rem; font-weight: 600; padding: 4px 10px;
+  border-radius: 100px;
+}
+.project-body { padding: 24px; }
+.project-body h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem; color: var(--text); margin-bottom: 10px;
+}
+.project-obj { font-size: 0.87rem; color: var(--text-sub); margin-bottom: 14px; }
+.project-tech { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+.project-tech span {
+  font-size: 0.75rem; padding: 3px 10px;
+  background: var(--paprika-light); color: var(--paprika);
+  border-radius: 100px; font-weight: 500;
+}
+[data-theme="dark"] .project-tech span { background: rgba(232,98,42,0.15); }
+.project-outcome { font-size: 0.85rem; color: var(--text-sub); margin-bottom: 18px; }
+.project-links { display: flex; gap: 10px; }
+.btn-sm {
+  font-size: 0.82rem; padding: 8px 16px;
+  border-radius: 8px; font-weight: 500; cursor: pointer;
+  background: var(--green-pale); color: var(--green-mid);
+  border: 1px solid rgba(76,175,107,0.3);
+  transition: all var(--transition);
+}
+.btn-sm:hover { background: var(--green-bright); color: #fff; }
+.btn-ghost { background: transparent; color: var(--text-sub); border-color: var(--border); }
+.btn-ghost:hover { background: var(--surface); color: var(--text); }
+
+/* ── CERTIFICATIONS ── */
+.cert-section { background: var(--bg-alt); }
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+.cert-card {
+  display: flex; align-items: center; gap: 18px;
+  padding: 22px 24px; position: relative;
+}
+.cert-icon { font-size: 2rem; flex-shrink: 0; }
+.cert-body h4 { font-weight: 600; font-size: 0.95rem; color: var(--text); margin-bottom: 4px; }
+.cert-body p { font-size: 0.82rem; color: var(--text-sub); margin-bottom: 6px; }
+.cert-date { font-size: 0.78rem; color: var(--green-bright); font-weight: 600; }
+.cert-badge {
+  position: absolute; top: 14px; right: 16px;
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em;
+  color: var(--green-bright); background: var(--green-pale);
+  padding: 2px 8px; border-radius: 100px;
+}
+
+/* ── RESEARCH ── */
+.research-section { background: var(--bg); }
+.research-tabs {
+  display: flex; gap: 8px; flex-wrap: wrap;
+  justify-content: center; margin-bottom: 40px;
+}
+.rtab {
+  background: var(--surface); border: 1px solid var(--border);
+  padding: 10px 22px; border-radius: 100px;
+  font-weight: 500; font-size: 0.88rem;
+  cursor: pointer; transition: all var(--transition);
+  color: var(--text-sub);
+}
+.rtab.active { background: var(--green-deep); color: #fff; border-color: var(--green-deep); }
+[data-theme="dark"] .rtab.active { background: var(--green-bright); border-color: var(--green-bright); }
+.rtab-content { display: none; flex-direction: column; gap: 20px; }
+.rtab-content.active { display: flex; }
+.research-card {
+  display: flex; gap: 20px; align-items: flex-start; padding: 28px;
+}
+.rc-icon { font-size: 2rem; flex-shrink: 0; margin-top: 2px; }
+.rc-body h4 { font-weight: 600; font-size: 1rem; color: var(--text); margin-bottom: 10px; }
+.rc-body p { font-size: 0.88rem; color: var(--text-sub); margin-bottom: 14px; line-height: 1.7; }
+.rc-meta { display: flex; gap: 12px; }
+.rc-meta span {
+  font-size: 0.78rem; padding: 3px 10px;
+  background: var(--green-pale); color: var(--green-mid);
+  border-radius: 100px; font-weight: 500;
+}
+
+/* ── EXPERIENCE ── */
+.exp-section { background: var(--bg-alt); }
+.exp-grid { display: flex; flex-direction: column; gap: 28px; }
+.exp-card { padding: 32px; }
+.exp-header {
+  display: flex; gap: 20px; align-items: flex-start; margin-bottom: 24px;
+}
+.exp-org-icon {
+  font-size: 2.5rem; width: 60px; height: 60px;
+  background: var(--green-pale); border-radius: var(--r-sm);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.exp-header h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem; color: var(--text); margin-bottom: 4px;
+}
+.exp-role { color: var(--green-mid); font-weight: 500; font-size: 0.9rem; margin-bottom: 6px; }
+.exp-duration { font-size: 0.82rem; color: var(--text-sub); }
+.exp-responsibilities h4, .exp-learnings h4 {
+  font-weight: 600; font-size: 0.88rem;
+  text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--text-sub); margin-bottom: 12px;
+}
+.exp-responsibilities ul { display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; }
+.exp-responsibilities li {
+  font-size: 0.9rem; color: var(--text);
+  padding-left: 20px; position: relative;
+}
+.exp-responsibilities li::before {
+  content: '→'; position: absolute; left: 0;
+  color: var(--green-bright); font-weight: 700;
+}
+.exp-learnings p { font-size: 0.9rem; color: var(--text-sub); font-style: italic; line-height: 1.7; }
+
+/* ── GALLERY ── */
+.gallery-section {
+  background: var(--green-deep);
+}
+.gallery-section .section-header h2 { color: #fff; }
+.gallery-section .eyebrow { background: rgba(76,175,107,0.2); color: #90EE90; }
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 220px 220px;
+  gap: 12px;
+}
+.gallery-item {
+  border-radius: var(--r-md); position: relative;
+  overflow: hidden; cursor: pointer;
+  transition: transform var(--transition), filter var(--transition);
+}
+.gallery-item:hover { transform: scale(1.02); filter: brightness(1.1); }
+.gallery-item:hover .gallery-label { opacity: 1; transform: translateY(0); }
+.gi-1 { grid-column: 1 / 2; grid-row: 1 / 2; background: linear-gradient(135deg,#1a5c3a,#2d8a56); }
+.gi-2 { grid-column: 2 / 3; grid-row: 1 / 2; background: linear-gradient(135deg,#2d4a5c,#3d7a8a); }
+.gi-3 { grid-column: 3 / 4; grid-row: 1 / 3; background: linear-gradient(135deg,#4a3d1a,#8a6d2d); }
+.gi-4 { grid-column: 1 / 2; grid-row: 2 / 3; background: linear-gradient(135deg,#3d1a4a,#6d3d8a); }
+.gi-5 { grid-column: 2 / 3; grid-row: 2 / 3; background: linear-gradient(135deg,#1a3d4a,#2d6d7a); }
+/* Add food-themed placeholder visuals */
+.gi-1::before { content: '⚗️ 🔬 🧪'; font-size: 2.5rem; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); opacity: 0.3; }
+.gi-2::before { content: '🧫 🦠 📊'; font-size: 2.5rem; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); opacity: 0.3; }
+.gi-3::before { content: '🥗 🍵 🫙'; font-size: 3rem; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); opacity: 0.3; }
+.gi-4::before { content: '🔬 📋 ✅'; font-size: 2.5rem; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); opacity: 0.3; }
+.gi-5::before { content: '🎤 📄 🏆'; font-size: 2.5rem; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); opacity: 0.3; }
+.gi-6 { display: none; }
+.gallery-label {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+  color: #fff; font-size: 0.85rem; font-weight: 500;
+  padding: 20px 16px 14px;
+  opacity: 0; transform: translateY(6px);
+  transition: opacity var(--transition), transform var(--transition);
+}
+
+/* ── CONTACT ── */
+.contact-section { background: var(--bg-alt); }
+.contact-grid {
+  display: grid; grid-template-columns: 1fr 1.4fr;
+  gap: 56px; align-items: start;
+}
+.contact-lead {
+  font-size: 1.05rem; color: var(--text-sub);
+  margin-bottom: 32px; line-height: 1.8;
+}
+.contact-items { display: flex; flex-direction: column; gap: 14px; }
+.contact-item {
+  display: flex; align-items: center; gap: 16px;
+  padding: 18px 22px; transition: all var(--transition);
+}
+.contact-item:hover { transform: translateX(4px); }
+.ci-icon { font-size: 1.5rem; flex-shrink: 0; }
+.contact-item strong { display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-sub); margin-bottom: 2px; }
+.contact-item span { color: var(--text); font-weight: 500; font-size: 0.95rem; }
+.contact-form { padding: 36px; }
+.contact-form h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem; color: var(--text); margin-bottom: 28px;
+}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 18px; }
+.form-group label { font-size: 0.82rem; font-weight: 600; color: var(--text-sub); letter-spacing: 0.06em; }
+.form-group input, .form-group textarea {
+  background: var(--bg); border: 1.5px solid var(--border);
+  border-radius: 10px; padding: 12px 16px;
+  font-family: 'Inter', sans-serif; font-size: 0.9rem;
+  color: var(--text); transition: border var(--transition), box-shadow var(--transition);
+  outline: none; resize: vertical;
+}
+.form-group input:focus, .form-group textarea:focus {
+  border-color: var(--green-bright);
+  box-shadow: 0 0 0 3px rgba(76,175,107,0.15);
+}
+.form-success {
+  margin-top: 16px; padding: 14px;
+  background: var(--green-pale); color: var(--green-mid);
+  border-radius: 10px; font-weight: 500; text-align: center;
+}
+
+/* ── FOOTER ── */
+.footer {
+  background: var(--green-deep); color: rgba(255,255,255,0.7);
+  padding: 40px 24px;
+}
+.footer-inner {
+  max-width: 1180px; margin: 0 auto;
+  display: flex; flex-direction: column; align-items: center; gap: 20px;
+  text-align: center;
+}
+.footer-brand p { font-size: 0.85rem; margin-top: 4px; }
+.footer-social { display: flex; gap: 16px; }
+.social-link {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem; transition: all var(--transition);
+}
+.social-link:hover { background: var(--paprika); transform: translateY(-3px); }
+.footer-copy { font-size: 0.8rem; opacity: 0.5; }
+
+/* ── REVEAL ANIMATIONS ── */
+.reveal {
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.4,0,0.2,1), transform 0.7s cubic-bezier(0.4,0,0.2,1);
+}
+.reveal.in-view { opacity: 1; transform: none; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .section { padding: 64px 0; }
+  .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  .about-visual { order: -1; }
+  .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+  .form-row { grid-template-columns: 1fr; }
+  .gallery-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 160px 160px 160px;
+  }
+  .gi-3 { grid-column: 1 / 2; grid-row: 2 / 3; }
+  .gi-4 { grid-column: 2 / 3; grid-row: 2 / 3; }
+  .gi-5 { grid-column: 1 / 2; grid-row: 3 / 4; }
+  .gi-6 { display: block; grid-column: 2 / 3; grid-row: 3 / 4; background: linear-gradient(135deg,#2d5c1a,#5c8a3a); }
+  .gi-6::before { content: '🌿 🥦 🫙'; font-size: 2rem; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); opacity: 0.3; }
+  .hero-stats { gap: 20px; }
+  .stat-n { font-size: 1.5rem; }
+  .research-card { flex-direction: column; }
+  .exp-header { flex-direction: column; }
+}
+@media (max-width: 480px) {
+  .skills-grid { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: 1fr; grid-template-rows: repeat(5,160px); }
+  .gi-3 { grid-column: 1; grid-row: 3; }
+  .gi-4 { grid-column: 1; grid-row: 4; }
+  .gi-5 { grid-column: 1; grid-row: 5; }
+}
+
+/* ── REDUCED MOTION ── */
+@media (prefers-reduced-motion: reduce) {
+  *,*::before,*::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════ NAV ═══════════════════════ -->
+<nav class="nav" id="navbar">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo">AT<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#certifications">Certs</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <span class="icon-sun">☀️</span>
+        <span class="icon-moon">🌙</span>
+      </button>
+      <button class="nav-burger" id="burger" aria-label="Open menu">☰</button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about" onclick="closeMobile()">About</a>
+    <a href="#education" onclick="closeMobile()">Education</a>
+    <a href="#skills" onclick="closeMobile()">Skills</a>
+    <a href="#projects" onclick="closeMobile()">Projects</a>
+    <a href="#certifications" onclick="closeMobile()">Certifications</a>
+    <a href="#research" onclick="closeMobile()">Research</a>
+    <a href="#experience" onclick="closeMobile()">Experience</a>
+    <a href="#gallery" onclick="closeMobile()">Gallery</a>
+    <a href="#contact" onclick="closeMobile()">Contact</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════ HERO ═══════════════════════ -->
+<section class="hero" id="hero">
+  <canvas id="particleCanvas"></canvas>
+  <div class="hero-content">
+    <div class="hero-badge reveal">🌿 Food Technology Student · KL University · 2027</div>
+    <h1 class="hero-name reveal">Aishani<br/><em>Tiruveedhula</em></h1>
+    <p class="hero-tagline reveal">Passionate Food Technology student exploring food innovation, quality assurance, nutrition, and sustainable food solutions.</p>
+    <div class="hero-btns reveal">
+      <a href="#" class="btn btn-primary" download>⬇ Download Resume</a>
+      <a href="#contact" class="btn btn-outline">✉ Contact Me</a>
+    </div>
+    <div class="hero-stats reveal">
+      <div class="stat"><span class="stat-n">4+</span><span class="stat-l">Years Course</span></div>
+      <div class="stat-div"></div>
+      <div class="stat"><span class="stat-n">13+</span><span class="stat-l">Skills</span></div>
+      <div class="stat-div"></div>
+      <div class="stat"><span class="stat-n">2027</span><span class="stat-l">Graduation</span></div>
+    </div>
+  </div>
+  <div class="hero-scroll-hint">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ═══════════════════════ ABOUT ═══════════════════════ -->
+<section class="section about-section" id="about">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Who I Am</span>
+      <h2>About Me</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-visual reveal">
+        <div class="about-avatar">
+          <div class="avatar-ring"></div>
+          <div class="avatar-initials">AT</div>
+          <div class="avatar-molecule m1">⬡</div>
+          <div class="avatar-molecule m2">◈</div>
+          <div class="avatar-molecule m3">⬟</div>
+        </div>
+      </div>
+      <div class="about-text reveal">
+        <p class="about-lead">Hi, I'm Aishani — a B.Tech Food Technology student at KL University with a deep passion for the science behind what we eat.</p>
+        <p>My academic journey has fueled my curiosity across the full spectrum of food science — from <strong>food processing and safety</strong> to <strong>nutritional biochemistry and quality control</strong>. I'm particularly drawn to how food research can directly impact human health and environmental sustainability.</p>
+        <p>I thrive at the intersection of laboratory science and real-world application — whether that means analyzing microbial risks in a HACCP framework, designing packaging to extend shelf life, or exploring functional foods that address modern nutrition challenges.</p>
+        <p>I believe the food industry's future belongs to those who combine scientific rigor with creative thinking. That's the kind of food technologist I'm working hard to become.</p>
+        <div class="about-tags">
+          <span class="tag">🔬 Food Science</span>
+          <span class="tag">🌱 Sustainability</span>
+          <span class="tag">🧫 Microbiology</span>
+          <span class="tag">📊 Quality Control</span>
+          <span class="tag">🥗 Nutrition</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ EDUCATION ═══════════════════════ -->
+<section class="section edu-section" id="education">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Academic Journey</span>
+      <h2>Education</h2>
+    </div>
+    <div class="timeline reveal">
+      <div class="timeline-item active">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card glass-card">
+          <div class="tc-top">
+            <span class="tc-badge">Current</span>
+            <span class="tc-year">2023 – 2027</span>
+          </div>
+          <div class="tc-logo">🎓</div>
+          <h3 class="tc-title">KL University</h3>
+          <p class="tc-sub">Bachelor of Technology in Food Technology</p>
+          <p class="tc-loc">📍 Thullur, Andhra Pradesh, India</p>
+          <div class="tc-highlights">
+            <span>Food Processing</span>
+            <span>Quality Assurance</span>
+            <span>Food Microbiology</span>
+            <span>Nutrition Science</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ SKILLS ═══════════════════════ -->
+<section class="section skills-section" id="skills">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">What I Know</span>
+      <h2>Skills</h2>
+    </div>
+    <div class="skills-categories">
+      <div class="skills-group reveal">
+        <h3 class="skills-group-title">🔬 Food Science & Technology</h3>
+        <div class="skills-grid">
+          <div class="skill-card glass-card">
+            <div class="skill-icon">⚙️</div>
+            <h4>Food Processing</h4>
+            <p>Thermal treatment, preservation methods, unit operations and manufacturing principles.</p>
+            <div class="skill-bar"><div class="skill-fill" data-w="82"></div></div>
+          </div>
+          <div class="skill-card glass-card">
+            <div class="skill-icon">🛡️</div>
+            <h4>Food Safety</h4>
+            <p>Regulatory compliance, contamination control, safety management systems and standards.</p>
+            <div class="skill-bar"><div class="skill-fill" data-w="78"></div></div>
+          </div>
+          <div class="skill-card glass-card">
+            <div class="skill-icon">✅</div>
+            <h4>Quality Assurance</h4>
+            <p>Sensory evaluation, physicochemical testing, GMP, and quality systems implementation.</p>
+            <div class="skill-bar"><div class="skill-fill" data-w="80"></div></div>
+          </div>
+          <div class="skill-card glass-card">
+            <div class="skill-icon">🧫</div>
+            <h4>Food Microbiology</h4>
+            <p>Pathogen identification, microbial analysis, fermentation and spoilage mechanisms.</p>
+            <div class="skill-bar"><div class="skill-fill" data-w="75"></div></div>
+          </div>
+          <div class="skill-card glass-card">
+            <div class="skill-icon">🥦</div>
+            <h4>Nutrition Science</h4>
+            <p>Macro/micronutrient analysis, functional foods, dietary assessment, and formulation.</p>
+            <div class="skill-bar"><div class="skill-fill" data-w="77"></div></div>
+          </div>
+          <div class="skill-card glass-card">
+            <div class="skill-icon">📦</div>
+            <h4>Food Packaging</h4>
+            <p>Active/modified atmosphere packaging, material selection, and labelling regulations.</p>
+            <div class="skill-bar"><div class="skill-fill" data-w="70"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="skills-group reveal">
+        <h3 class="skills-group-title">🧪 Laboratory & Research</h3>
+        <div class="skills-grid">
+          <div class="skill-card glass-card">
+            <div class="skill-icon">⚗️</div>
+            <h4>Laboratory Techniques</h4>
+            <p>Proximate analysis, titration, spectrophotometry, chromatography, and microscopy.</p>
+            <div class="skill-bar"><div class="skill-fill" data-w="76"></div></div>
+          </div>
+          <div class="skill-card glass-card">
+            <div class="skill-icon">🔒</div>
+            <h4>HACCP</h4>
+            <p>Hazard analysis, critical control point identification, monitoring and corrective actions.</p>
+            <div class="skill-bar"><div class="skill-fill" data-w="73"></div></div>
+          </div>
+          <div class="skill-card glass-card">
+            <div class="skill-icon">📈</div>
+            <h4>Research & Analysis</h4>
+            <p>Literature review, experimental design, data interpretation, and technical reporting.</p>
+            <div class="skill-bar"><div class="skill-fill" data-w="80"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="skills-group reveal">
+        <h3 class="skills-group-title">💼 Professional Tools</h3>
+        <div class="skills-grid">
+          <div class="skill-card glass-card">
+            <div class="skill-icon">📊</div>
+            <h4>Data Analysis</h4>
+            <p>Statistical analysis, data visualization, pattern recognition for food quality datasets.</p>
+            <div class="skill-bar"><div class="skill-fill" data-w="71"></div></div>
+          </div>
+          <div class="skill-card glass-card">
+            <div class="skill-icon">🟢</div>
+            <h4>MS Excel</h4>
+            <p>Pivot tables, VLOOKUP, data charts, and spreadsheet management for lab data.</p>
+            <div class="skill-bar"><div class="skill-fill" data-w="83"></div></div>
+          </div>
+          <div class="skill-card glass-card">
+            <div class="skill-icon">📑</div>
+            <h4>PowerPoint</h4>
+            <p>Professional presentation design for research communication and academic submissions.</p>
+            <div class="skill-bar"><div class="skill-fill" data-w="88"></div></div>
+          </div>
+          <div class="skill-card glass-card">
+            <div class="skill-icon">🗣️</div>
+            <h4>Communication</h4>
+            <p>Technical writing, team collaboration, seminar presentations, and academic reporting.</p>
+            <div class="skill-bar"><div class="skill-fill" data-w="85"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ PROJECTS ═══════════════════════ -->
+<section class="section projects-section" id="projects">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">What I've Built</span>
+      <h2>Projects</h2>
+    </div>
+    <div class="projects-grid">
+
+      <div class="project-card glass-card reveal">
+        <div class="project-img project-img-1">
+          <div class="project-overlay">
+            <span class="project-tag">Food Safety</span>
+          </div>
+        </div>
+        <div class="project-body">
+          <h3>HACCP Plan for Dairy Processing Unit</h3>
+          <p class="project-obj"><strong>Objective:</strong> Design and implement a comprehensive HACCP plan for a hypothetical small-scale dairy processing facility.</p>
+          <div class="project-tech">
+            <span>HACCP</span><span>Food Safety</span><span>Microbiology</span><span>Risk Analysis</span>
+          </div>
+          <p class="project-outcome"><strong>Outcome:</strong> Identified 7 critical control points, developed monitoring procedures, and produced a full corrective-action framework reducing simulated contamination risk by 85%.</p>
+          <div class="project-links">
+            <a href="#" class="btn-sm">📂 View Report</a>
+            <a href="#" class="btn-sm btn-ghost">🔗 GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card glass-card reveal">
+        <div class="project-img project-img-2">
+          <div class="project-overlay">
+            <span class="project-tag">Nutrition</span>
+          </div>
+        </div>
+        <div class="project-body">
+          <h3>Nutritional Profile Analysis of Millets</h3>
+          <p class="project-obj"><strong>Objective:</strong> Conduct proximate analysis on five millet varieties to compare nutritional value against conventional staple grains.</p>
+          <div class="project-tech">
+            <span>Proximate Analysis</span><span>Lab Techniques</span><span>Data Analysis</span><span>Excel</span>
+          </div>
+          <p class="project-outcome"><strong>Outcome:</strong> Demonstrated finger millet's superior calcium and iron content; findings compiled into a research brief advocating millet integration into fortified food programs.</p>
+          <div class="project-links">
+            <a href="#" class="btn-sm">📂 View Report</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card glass-card reveal">
+        <div class="project-img project-img-3">
+          <div class="project-overlay">
+            <span class="project-tag">Packaging</span>
+          </div>
+        </div>
+        <div class="project-body">
+          <h3>Eco-Friendly Packaging for Fresh Produce</h3>
+          <p class="project-obj"><strong>Objective:</strong> Evaluate biodegradable and active-packaging alternatives to extend the shelf life of leafy vegetables without cold-chain dependency.</p>
+          <div class="project-tech">
+            <span>Food Packaging</span><span>Sustainability</span><span>Quality Testing</span>
+          </div>
+          <p class="project-outcome"><strong>Outcome:</strong> Identified a chitosan-coated biodegradable wrap that extended lettuce freshness by 4 additional days versus conventional plastic film.</p>
+          <div class="project-links">
+            <a href="#" class="btn-sm">📂 View Report</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card glass-card reveal">
+        <div class="project-img project-img-4">
+          <div class="project-overlay">
+            <span class="project-tag">Fermentation</span>
+          </div>
+        </div>
+        <div class="project-body">
+          <h3>Probiotic Yogurt Formulation Study</h3>
+          <p class="project-obj"><strong>Objective:</strong> Develop an optimized probiotic yogurt formulation with enhanced viability of Lactobacillus acidophilus through storage.</p>
+          <div class="project-tech">
+            <span>Fermentation</span><span>Microbiology</span><span>Food Processing</span>
+          </div>
+          <p class="project-outcome"><strong>Outcome:</strong> Achieved >10⁸ CFU/g probiotic counts at 21 days post-production by optimizing milk fat content and fermentation temperature.</p>
+          <div class="project-links">
+            <a href="#" class="btn-sm">📂 View Report</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ CERTIFICATIONS ═══════════════════════ -->
+<section class="section cert-section" id="certifications">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Credentials</span>
+      <h2>Certifications</h2>
+    </div>
+    <div class="cert-grid">
+      <div class="cert-card glass-card reveal">
+        <div class="cert-icon">🏅</div>
+        <div class="cert-body">
+          <h4>FSSAI Food Safety Supervisor</h4>
+          <p>Food Safety and Standards Authority of India</p>
+          <span class="cert-date">2024</span>
+        </div>
+        <div class="cert-badge">Verified</div>
+      </div>
+      <div class="cert-card glass-card reveal">
+        <div class="cert-icon">📜</div>
+        <div class="cert-body">
+          <h4>HACCP Principles & Applications</h4>
+          <p>NPTEL Online Certification</p>
+          <span class="cert-date">2024</span>
+        </div>
+        <div class="cert-badge">Verified</div>
+      </div>
+      <div class="cert-card glass-card reveal">
+        <div class="cert-icon">🧬</div>
+        <div class="cert-body">
+          <h4>Nutritional Science Fundamentals</h4>
+          <p>Coursera — Stanford University</p>
+          <span class="cert-date">2024</span>
+        </div>
+        <div class="cert-badge">Verified</div>
+      </div>
+      <div class="cert-card glass-card reveal">
+        <div class="cert-icon">🔬</div>
+        <div class="cert-body">
+          <h4>Good Manufacturing Practices (GMP)</h4>
+          <p>WHO / NPTEL Collaborative Program</p>
+          <span class="cert-date">2023</span>
+        </div>
+        <div class="cert-badge">Verified</div>
+      </div>
+      <div class="cert-card glass-card reveal">
+        <div class="cert-icon">🌿</div>
+        <div class="cert-body">
+          <h4>Sustainable Food Systems</h4>
+          <p>edX — Wageningen University</p>
+          <span class="cert-date">2024</span>
+        </div>
+        <div class="cert-badge">Verified</div>
+      </div>
+      <div class="cert-card glass-card reveal">
+        <div class="cert-icon">📊</div>
+        <div class="cert-body">
+          <h4>Data Analysis with Excel</h4>
+          <p>Microsoft Learn / LinkedIn Learning</p>
+          <span class="cert-date">2023</span>
+        </div>
+        <div class="cert-badge">Verified</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ RESEARCH & ACHIEVEMENTS ═══════════════════════ -->
+<section class="section research-section" id="research">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Contributions & Recognition</span>
+      <h2>Research & Achievements</h2>
+    </div>
+    <div class="research-tabs reveal">
+      <button class="rtab active" data-tab="papers">📄 Papers</button>
+      <button class="rtab" data-tab="workshops">🛠 Workshops</button>
+      <button class="rtab" data-tab="competitions">🏆 Competitions</button>
+      <button class="rtab" data-tab="conferences">🎤 Conferences</button>
+    </div>
+
+    <div class="research-content">
+      <div class="rtab-content active" id="papers">
+        <div class="research-card glass-card reveal">
+          <div class="rc-icon">📄</div>
+          <div class="rc-body">
+            <h4>Millet Integration in Fortified School Meal Programs</h4>
+            <p>A review and feasibility study exploring how underutilized cereal grains like finger millet and foxtail millet can replace conventional staples in mid-day meal programs to address micro-nutrient deficiencies in school-age children.</p>
+            <div class="rc-meta"><span>Under Preparation</span><span>2024–25</span></div>
+          </div>
+        </div>
+        <div class="research-card glass-card reveal">
+          <div class="rc-icon">📰</div>
+          <div class="rc-body">
+            <h4>Emerging Trends in Plant-Based Protein Substitutes</h4>
+            <p>A literature survey on the functional and nutritional properties of legume-derived and mycoprotein-based meat analogues, with comparative sensory analysis frameworks.</p>
+            <div class="rc-meta"><span>Review Article</span><span>2024</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rtab-content" id="workshops">
+        <div class="research-card glass-card reveal">
+          <div class="rc-icon">🛠</div>
+          <div class="rc-body">
+            <h4>Food Quality Testing Techniques — Hands-On Workshop</h4>
+            <p>Two-day intensive workshop on physicochemical and sensory evaluation methods, including texture analysis, color measurement, and aw measurement in food products.</p>
+            <div class="rc-meta"><span>KL University</span><span>2024</span></div>
+          </div>
+        </div>
+        <div class="research-card glass-card reveal">
+          <div class="rc-icon">🌱</div>
+          <div class="rc-body">
+            <h4>Sustainable Agri-Food Systems Workshop</h4>
+            <p>Participated in a collaborative workshop covering circular economy principles applied to food waste valorization and sustainable supply chain management.</p>
+            <div class="rc-meta"><span>NIFTEM Collaboration</span><span>2023</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rtab-content" id="competitions">
+        <div class="research-card glass-card reveal">
+          <div class="rc-icon">🥇</div>
+          <div class="rc-body">
+            <h4>Inter-University Food Innovation Hackathon</h4>
+            <p>Developed a concept for a low-cost, solar-powered food dehydrator for rural farmers. The solution addressed post-harvest loss in seasonal vegetables with an estimated 40% yield-to-market improvement.</p>
+            <div class="rc-meta"><span>Participant</span><span>2024</span></div>
+          </div>
+        </div>
+        <div class="research-card glass-card reveal">
+          <div class="rc-icon">🏆</div>
+          <div class="rc-body">
+            <h4>KL University Science & Tech Expo</h4>
+            <p>Presented a probiotic yogurt formulation study on the department exhibition. Recognized for innovative approach to extending probiotic viability during refrigerated storage.</p>
+            <div class="rc-meta"><span>Recognition Award</span><span>2024</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rtab-content" id="conferences">
+        <div class="research-card glass-card reveal">
+          <div class="rc-icon">🎤</div>
+          <div class="rc-body">
+            <h4>National Conference on Food Technology & Nutrition</h4>
+            <p>Attended and participated in poster presentations, networking with researchers from IIT, CFTRI, and NIFTEM on topics spanning food biofortification, novel preservation technologies, and functional food design.</p>
+            <div class="rc-meta"><span>Attendee & Poster</span><span>2024</span></div>
+          </div>
+        </div>
+        <div class="research-card glass-card reveal">
+          <div class="rc-icon">🌐</div>
+          <div class="rc-body">
+            <h4>Webinar — Future of Food: AI in Quality Control</h4>
+            <p>Attended international webinar exploring applications of machine learning in food quality monitoring, automated defect detection in production lines, and predictive shelf-life modelling.</p>
+            <div class="rc-meta"><span>Online · IFT Hosted</span><span>2023</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ EXPERIENCE ═══════════════════════ -->
+<section class="section exp-section" id="experience">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Hands-On Learning</span>
+      <h2>Experience</h2>
+    </div>
+    <div class="exp-grid">
+      <div class="exp-card glass-card reveal">
+        <div class="exp-header">
+          <div class="exp-org-icon">🏭</div>
+          <div>
+            <h3>Food Processing Unit — Industry Visit</h3>
+            <p class="exp-role">Student Observer & Analyst</p>
+            <span class="exp-duration">📅 2024 · 5 Days</span>
+          </div>
+        </div>
+        <div class="exp-responsibilities">
+          <h4>Key Responsibilities</h4>
+          <ul>
+            <li>Observed end-to-end production flow from raw material intake to finished product dispatch</li>
+            <li>Documented GMP compliance practices and sanitation protocols across production zones</li>
+            <li>Assisted in in-line quality checks: weight, pH, viscosity, and visual inspection</li>
+            <li>Participated in debrief sessions with quality and R&D teams</li>
+          </ul>
+        </div>
+        <div class="exp-learnings">
+          <h4>Key Learnings</h4>
+          <p>Gained first-hand insight into industrial food safety culture, real-time quality monitoring systems, and the critical role of cross-departmental coordination in food manufacturing.</p>
+        </div>
+      </div>
+
+      <div class="exp-card glass-card reveal">
+        <div class="exp-header">
+          <div class="exp-org-icon">🔬</div>
+          <div>
+            <h3>University Food Science Laboratory</h3>
+            <p class="exp-role">Lab Assistant (Academic)</p>
+            <span class="exp-duration">📅 2023–Present · Ongoing</span>
+          </div>
+        </div>
+        <div class="exp-responsibilities">
+          <h4>Key Responsibilities</h4>
+          <ul>
+            <li>Conducted proximate composition analyses (moisture, ash, fat, protein, fibre)</li>
+            <li>Performed microbiological testing including total plate count and coliform detection</li>
+            <li>Maintained laboratory records, calibrated instruments, and prepared reagents</li>
+            <li>Assisted junior students during practical sessions</li>
+          </ul>
+        </div>
+        <div class="exp-learnings">
+          <h4>Key Learnings</h4>
+          <p>Developed precision in laboratory methodology, learned the importance of SOPs and documentation, and built foundational skills in food analysis critical for both research and industry roles.</p>
+        </div>
+      </div>
+
+      <div class="exp-card glass-card reveal">
+        <div class="exp-header">
+          <div class="exp-org-icon">🌾</div>
+          <div>
+            <h3>Agri-Food Innovation Cell — KL University</h3>
+            <p class="exp-role">Student Volunteer & Project Contributor</p>
+            <span class="exp-duration">📅 2024 · 3 Months</span>
+          </div>
+        </div>
+        <div class="exp-responsibilities">
+          <h4>Key Responsibilities</h4>
+          <ul>
+            <li>Contributed to literature review for a millet-based supplementary nutrition project</li>
+            <li>Compiled nutritional databases and assisted in sensory panel evaluations</li>
+            <li>Prepared presentation materials for project progress reviews</li>
+          </ul>
+        </div>
+        <div class="exp-learnings">
+          <h4>Key Learnings</h4>
+          <p>Understood the practical workflow of applied food research, from concept scoping to data collection, and honed collaborative skills in a multidisciplinary team environment.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ GALLERY ═══════════════════════ -->
+<section class="section gallery-section" id="gallery">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Lab & Life</span>
+      <h2>Gallery</h2>
+    </div>
+    <div class="gallery-grid reveal">
+      <div class="gallery-item gi-1">
+        <div class="gallery-label">Food Lab Analysis</div>
+      </div>
+      <div class="gallery-item gi-2">
+        <div class="gallery-label">Microbiology Cultures</div>
+      </div>
+      <div class="gallery-item gi-3">
+        <div class="gallery-label">Product Formulation</div>
+      </div>
+      <div class="gallery-item gi-4">
+        <div class="gallery-label">Quality Testing</div>
+      </div>
+      <div class="gallery-item gi-5">
+        <div class="gallery-label">Conference Presentation</div>
+      </div>
+      <div class="gallery-item gi-6">
+        <div class="gallery-label">Team Workshop</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ CONTACT ═══════════════════════ -->
+<section class="section contact-section" id="contact">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Get In Touch</span>
+      <h2>Contact Me</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <p class="contact-lead">I'm open to internship opportunities, research collaborations, academic projects, and conversations about food technology. Let's connect!</p>
+        <div class="contact-items">
+          <a href="mailto:aishani.sandhya@gmail.com" class="contact-item glass-card">
+            <div class="ci-icon">✉️</div>
+            <div>
+              <strong>Email</strong>
+              <span>aishani.sandhya@gmail.com</span>
+            </div>
+          </a>
+          <a href="https://www.linkedin.com/in/aishanitiruveedhula-4a8441330" target="_blank" class="contact-item glass-card">
+            <div class="ci-icon">💼</div>
+            <div>
+              <strong>LinkedIn</strong>
+              <span>Aishani Tiruveedhula</span>
+            </div>
+          </a>
+          <div class="contact-item glass-card">
+            <div class="ci-icon">📍</div>
+            <div>
+              <strong>Location</strong>
+              <span>Thullur, Andhra Pradesh, India</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form-wrap reveal">
+        <form class="contact-form glass-card" onsubmit="handleForm(event)">
+          <h3>Send a Message</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fname">Your Name</label>
+              <input type="text" id="fname" placeholder="Jane Smith" required />
+            </div>
+            <div class="form-group">
+              <label for="femail">Email Address</label>
+              <input type="email" id="femail" placeholder="jane@example.com" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="fsubject">Subject</label>
+            <input type="text" id="fsubject" placeholder="Internship Inquiry / Research Collaboration..." />
+          </div>
+          <div class="form-group">
+            <label for="fmsg">Message</label>
+            <textarea id="fmsg" rows="5" placeholder="Tell me a bit about what you have in mind..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary full-width">Send Message ✉️</button>
+          <div id="formSuccess" class="form-success hidden">✅ Message sent! I'll get back to you soon.</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="#hero" class="nav-logo">AT<span class="dot">.</span></a>
+      <p>Food Technology Student · KL University</p>
+    </div>
+    <div class="footer-social">
+      <a href="mailto:aishani.sandhya@gmail.com" aria-label="Email" class="social-link">✉️</a>
+      <a href="https://www.linkedin.com/in/aishanitiruveedhula-4a8441330" target="_blank" aria-label="LinkedIn" class="social-link">💼</a>
+    </div>
+    <p class="footer-copy">© 2025 Aishani Tiruveedhula. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+/* ════════════════════════════════════════════════════
+   PORTFOLIO · JAVASCRIPT
+   Particle canvas · Scroll reveal · Dark mode
+   Skill bars · Research tabs · Nav scroll
+   ════════════════════════════════════════════════════ */
+
+/* ── DARK / LIGHT MODE ── */
+const root = document.documentElement;
+const toggle = document.getElementById('themeToggle');
+const savedTheme = localStorage.getItem('theme') || 'light';
+root.setAttribute('data-theme', savedTheme);
+
+toggle.addEventListener('click', () => {
+  const curr = root.getAttribute('data-theme');
+  const next = curr === 'light' ? 'dark' : 'light';
+  root.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+});
+
+/* ── STICKY NAV ── */
+const nav = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 20);
+});
+
+/* ── MOBILE MENU ── */
+const burger = document.getElementById('burger');
+const mobileMenu = document.getElementById('mobileMenu');
+burger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+function closeMobile() { mobileMenu.classList.remove('open'); }
+
+/* ── SCROLL REVEAL ── */
+const revealEls = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      // Stagger siblings
+      const siblings = [...entry.target.parentElement.querySelectorAll('.reveal:not(.in-view)')];
+      const delay = siblings.indexOf(entry.target) * 80;
+      setTimeout(() => {
+        entry.target.classList.add('in-view');
+      }, delay);
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+revealEls.forEach(el => revealObserver.observe(el));
+
+/* ── SKILL BARS ── */
+const skillFills = document.querySelectorAll('.skill-fill');
+const skillObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const target = entry.target;
+      const width = target.getAttribute('data-w') + '%';
+      setTimeout(() => { target.style.width = width; }, 200);
+      skillObserver.unobserve(target);
+    }
+  });
+}, { threshold: 0.3 });
+skillFills.forEach(f => skillObserver.observe(f));
+
+/* ── RESEARCH TABS ── */
+const rtabs = document.querySelectorAll('.rtab');
+const rtabContents = document.querySelectorAll('.rtab-content');
+rtabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    rtabs.forEach(t => t.classList.remove('active'));
+    rtabContents.forEach(c => c.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById(tab.dataset.tab).classList.add('active');
+  });
+});
+
+/* ── CONTACT FORM ── */
+function handleForm(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('button[type="submit"]');
+  const success = document.getElementById('formSuccess');
+  btn.textContent = 'Sending…';
+  btn.disabled = true;
+  setTimeout(() => {
+    btn.textContent = 'Send Message ✉️';
+    btn.disabled = false;
+    success.classList.remove('hidden');
+    e.target.reset();
+    setTimeout(() => success.classList.add('hidden'), 4000);
+  }, 1200);
+}
+
+/* ── PARTICLE CANVAS ── */
+(function initParticles() {
+  const canvas = document.getElementById('particleCanvas');
+  const ctx = canvas.getContext('2d');
+
+  let W, H, particles;
+
+  const SYMBOLS = ['⬡', '◈', '⬟', '○', '◇', '△', '+', '×'];
+
+  function resize() {
+    W = canvas.width = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+  }
+
+  function mkParticle() {
+    return {
+      x: Math.random() * W,
+      y: Math.random() * H,
+      vx: (Math.random() - 0.5) * 0.35,
+      vy: (Math.random() - 0.5) * 0.35,
+      size: 10 + Math.random() * 14,
+      alpha: 0.08 + Math.random() * 0.18,
+      sym: SYMBOLS[Math.floor(Math.random() * SYMBOLS.length)],
+      color: Math.random() > 0.4 ? '#4CAF6B' : '#E8622A',
+    };
+  }
+
+  function initParticleList() {
+    particles = Array.from({ length: 55 }, mkParticle);
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    particles.forEach(p => {
+      ctx.save();
+      ctx.globalAlpha = p.alpha;
+      ctx.fillStyle = p.color;
+      ctx.font = `${p.size}px sans-serif`;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(p.sym, p.x, p.y);
+      ctx.restore();
+      p.x += p.vx;
+      p.y += p.vy;
+      if (p.x < -20) p.x = W + 20;
+      if (p.x > W + 20) p.x = -20;
+      if (p.y < -20) p.y = H + 20;
+      if (p.y > H + 20) p.y = -20;
+    });
+
+    // Draw faint connection lines between close particles
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 120) {
+          ctx.save();
+          ctx.globalAlpha = (1 - dist / 120) * 0.06;
+          ctx.strokeStyle = '#4CAF6B';
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.stroke();
+          ctx.restore();
+        }
+      }
+    }
+
+    requestAnimationFrame(draw);
+  }
+
+  window.addEventListener('resize', () => { resize(); initParticleList(); });
+  resize();
+  initParticleList();
+  draw();
+})();
+
+/* ── SMOOTH ACTIVE NAV LINK ── */
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+const sectionObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(a => a.style.color = '');
+      const active = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
+      if (active) active.style.color = 'var(--green-bright)';
+    }
+  });
+}, { threshold: 0.4 });
+sections.forEach(s => sectionObserver.observe(s));
+
+</script>
+</body>
+</html>
